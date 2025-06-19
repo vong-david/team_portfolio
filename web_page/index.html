@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Development Team Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        
+        /* Navigation Styles */
+        .nav-link.active {
+            color: #2563eb;
+            position: relative;
+        }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 1px;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="sticky top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-lg z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-code text-2xl text-blue-600"></i>
+                    <span class="text-xl font-bold text-gray-800">DevTeam</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 font-medium">Home</a>
+                    <a href="#team-overview" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 font-medium">Overview</a>
+                    <a href="#team-members" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 font-medium">Team</a>
+                    <a href="#developer-projects" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 font-medium">Projects</a>
+                    <a href="#capabilities" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 font-medium">Services</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 font-medium">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-blue-600 transition duration-300">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden border-t border-gray-200 py-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 font-medium">Home</a>
+                    <a href="#team-overview" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 font-medium">Overview</a>
+                    <a href="#team-members" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 font-medium">Team</a>
+                    <a href="#developer-projects" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 font-medium">Projects</a>
+                    <a href="#capabilities" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 font-medium">Services</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 font-medium">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header id="home" class="relative text-white pt-20 bg-cover bg-center bg-no-repeat" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+        <div class="container mx-auto px-6 py-24">
+            <div class="text-center fade-in">
+                <div class="floating inline-block mb-6">
+                    <i class="fas fa-code text-6xl"></i>
+                </div>
+                <h1 class="text-5xl font-bold mb-4">Elite Development Team</h1>
+                <p class="text-xl text-gray-200 mb-8">Building tomorrow's digital solutions today</p>
+                <div class="flex justify-center space-x-8 text-sm">
+                    <div class="text-center">
+                        <div class="text-5xl font-bold">8</div>
+                        <div class="text-gray-300">Team Members</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-5xl font-bold">100+</div>
+                        <div class="text-gray-300">Projects Delivered</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-5xl font-bold">5+</div>
+                        <div class="text-gray-300">Years Experience</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Team Overview -->
+    <section id="team-overview" class="py-16 scroll-mt-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Our Team Structure</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    A carefully assembled team of skilled professionals dedicated to delivering exceptional mobile and backend solutions
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="text-center fade-in stagger-1">
+                    <div class="bg-gradient-to-r from-blue-500 to-purple-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-crown text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Leadership</h3>
+                    <p class="text-gray-600">1 Deputy overseeing operations</p>
+                </div>
+                <div class="text-center fade-in stagger-2">
+                    <div class="bg-gradient-to-r from-green-500 to-blue-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-mobile-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Mobile Development</h3>
+                    <p class="text-gray-600">5 Mobile App Developers</p>
+                </div>
+                <div class="text-center fade-in stagger-3">
+                    <div class="bg-gradient-to-r from-purple-500 to-pink-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-server text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Backend Development</h3>
+                    <p class="text-gray-600">2 Backend Developers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Members -->
+    <section id="team-members" class="py-16 bg-white scroll-mt-20">
+        <div class="container mx-auto px-6" id="carousel">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12 ">Meet Our Team</h2>
+            <div class="overflow-x-auto snap-x snap-mandatory flex space-x-6 pb-4 scrollbar-hide" id="carousel-content">
+                <!-- Leadership Card -->
+                <div class="flex-none w-80 bg-white rounded-xl shadow-lg p-8 snap-center">
+                    <div class="text-center">
+                        <div class="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden shadow-lg">
+                            <img src="../images/teams/b_long.png" alt="Deputy Team Lead" class="w-full h-full object-cover">                        
+                        </div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Out Kimlong</h4>
+                        <p class="text-blue-800 font-medium mb-3">Deputy IT Office and Team Lead</p>
+                        <p class="text-gray-600 text-sm mb-4">Oversees project delivery, team coordination, and strategic planning to ensure seamless development workflows.</p>
+                        <div class="flex justify-center space-x-4">
+                            <div class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Leadership</div>
+                            <div class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Strategy</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mobile Developer 1 -->
+                <div class="flex-none w-80 bg-white rounded-xl shadow-lg p-8 snap-center">
+                    <div class="text-center">
+                        <div class="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden shadow-lg">
+                            <img src="../images/teams/phanith.png" alt="Mobile Developer 1" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Mon Phanith</h4>
+                        <p class="text-blue-800 font-medium mb-3">Mobile Developer</p>
+                        <p class="text-gray-600 text-sm mb-4">Specializes in building cross-platform mobile applications with high performance.</p>
+                        <div class="flex justify-center space-x-4">
+                            <div class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Flutter</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mobile Developer 2 -->
+
+                <div class="flex-none w-80 bg-white rounded-xl shadow-lg p-8 snap-center">
+                    <div class="text-center">
+                        <div class="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden shadow-lg">
+                            <img src="../images/teams/pich.png" alt="Mobile Developer 3" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Oun Sreypich</h4>
+                        <p class="text-blue-800 font-medium mb-3">Mobile Developer</p>
+                        <p class="text-gray-600 text-sm mb-4">Specializes in building cross-platform mobile applications with high performance.</p>
+                        <div class="flex justify-center space-x-4">
+                            <div class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Flutter</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Developer 3 -->
+                <div class="flex-none w-80 bg-white rounded-xl shadow-lg p-8 snap-center">
+                    <div class="text-center">
+                        <div class="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden shadow-lg">
+                            <img src="../images/teams/heng.png" alt="Mobile Developer 2" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Mao Sokheng</h4>
+                        <p class="text-blue-800 font-medium mb-3">Mobile Developer & UX/UI Designer</p>
+                        <p class="text-gray-600 text-sm mb-4"> Expert in crafting intuitive and responsive Mobile applications.</p>
+                        <div class="flex justify-center space-x-4">
+                            <div class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Flutter</div>
+                            <div class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">React Native</div>
+                            <div class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">UX/UI Design</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile Developer 4 -->
+                <div class="flex-none w-80 bg-white rounded-xl shadow-lg p-8 snap-center">
+                    <div class="text-center">
+                        <div class="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden shadow-lg">
+                            <img src="../images/teams/soklin.png" alt="Mobile Developer 4" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Nuon Soklin</h4>
+                        <p class="text-blue-800 font-medium mb-3">Mobile Developer & Backend Developer</p>
+                        <p class="text-gray-600 text-sm mb-4">Specializes in building cross-platform mobile applications with high performance.</p>
+                        <div class="flex justify-center space-x-4">
+                            <div class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Flutter</div>
+                            <div class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Node JS</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mobile Developer 5 -->
+                <div class="flex-none w-80 bg-white rounded-xl shadow-lg p-8 snap-center">
+                    <div class="text-center">
+                        <div class="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden shadow-lg">
+                            <img src="../images/teams/jomrern.png" alt="Mobile Developer 5" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Phum Chamroeun</h4>
+                        <p class="text-blue-800 font-medium mb-3">Mobile Developer</p>
+                        <p class="text-gray-600 text-sm mb-4">Specializes in building cross-platform mobile applications with high performance.</p>
+                        <div class="flex justify-center space-x-4">
+                            <div class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Flutter</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Backend Developer 1 -->
+                <div class="flex-none w-80 bg-white rounded-xl shadow-lg p-8 snap-center">
+                    <div class="text-center">
+                        <div class="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden shadow-lg">
+                            <img src="../images/teams/boyvid.png" alt="Backend Developer 1" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Vong David</h4>
+                        <p class="text-blue-800 font-medium mb-3">Backend Developer & API</p>
+                        <p class="text-gray-600 text-sm mb-4">Designs and implements robust APIs and Content Management System.</p>
+                        <div class="flex justify-center space-x-4">
+                            <div class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Laravel</div>
+                            <div class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">PHP</div>
+                            <div class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">React JS</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Backend Developer 2 -->
+                <div class="flex-none w-80 bg-white rounded-xl shadow-lg p-8 snap-center">
+                    <div class="text-center">
+                        <div class="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden shadow-lg">
+                            <img src="../images/teams/lymeng.jpg" alt="Backend Developer 2" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Chhean Lymeng</h4>
+                        <p class="text-blue-800 font-medium mb-3">Backend Developer & API</p>
+                        <p class="text-gray-600 text-sm mb-4">Designs and implements robust APIs and Content Management System.</p>
+                        <div class="flex justify-center space-x-4">
+                            <div class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Laravel</div>
+                            <div class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">PHP</div>
+                            <div class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Hosting</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Developer Project Control Section -->
+    <section id="developer-projects" class="py-16 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Projects</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Discover the impressive range of projects each team member is actively managing and developing</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+                <!-- Deputy Team Lead Projects -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                    <div class="bg-gradient-to-r from-gray-700 to-gray-800 p-6 text-white">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-white/30 mr-3">
+                                    <img src="../images/teams/b_long.png" alt="Deputy Team Lead" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold">Out Kimlong</h3>
+                                    <p class="text-gray-100 text-sm">Deputy IT Office and Team Lead</p>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold">8</div>
+                                <div class="text-xs text-gray-100">Projects</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">BELTEI IS App</span>
+                                <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Active</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">BELTEI UI App</span>
+                                <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Active</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">AIPA Law Library App</span>
+                                <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Active</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">NAC App</span>
+                                <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Active</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">BELTEI IU Learning Web App</span>
+                                <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Active</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">BELTEI Learning App</span>
+                                <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">In progress</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">BELTEI Helpdesk App</span>
+                                <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">In progress</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">BELTEI Kid App</span>
+                                <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">In progress</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Developer 1 Projects -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                    <div class="bg-gradient-to-r from-gray-700 to-gray-800 p-6 text-white">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-white/30 mr-3">
+                                    <img src="../images/teams/phanith.png" alt="Mobile Developer 1" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold">Mon Phanith</h3>
+                                    <p class="text-gray-100 text-sm">Mobile Developer</p>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold">4</div>
+                                <div class="text-xs text-gray-100">Projects</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">BELTEI IU App</span>
+                                <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">100%</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">NAC App</span>
+                                <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">100%</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">BELTEI UI App</span>
+                                <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">100%</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">BELTEI Helpdesk App</span>
+                                <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">99.99%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Developer 2 Projects -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                    <div class="bg-gradient-to-r from-gray-700 to-gray-800 p-6 text-white">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-white/30 mr-3">
+                                    <img src="../images/teams/pich.png" alt="Mobile Developer 2" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold">Oun Sreypich</h3>
+                                    <p class="text-gray-100 text-sm">Mobile Developer</p>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold">2</div>
+                                <div class="text-xs text-gray-100">Projects</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">AIPA Law Library App</span>
+                                <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">100%</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">BELTEI IU App</span>
+                                <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">100%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Developer 3 Projects -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                    <div class="bg-gradient-to-r from-gray-700 to-gray-800 p-6 text-white">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-white/30 mr-3">
+                                    <img src="../images/teams/heng.png" alt="Mobile Developer 3" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold">Mao Sokheng</h3>
+                                    <p class="text-gray-100 text-sm">Mobile Developer & UX/UI Designer</p>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold">4</div>
+                                <div class="text-xs text-gray-100">Projects</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">BELTEI IS App</span>
+                                <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">100%</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">NAC App (UX/UI Design)</span>
+                                <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">100%</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">BELTEI Helpdesk App (UX/UI Design)</span>
+                                <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">100%</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">BELTEI Learning App & UX/UI Design</span>
+                                <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">80%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Developer 4 Projects -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                    <div class="bg-gradient-to-r from-gray-700 to-gray-800 p-6 text-white">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-white/30 mr-3">
+                                    <img src="../images/teams/jomrern.png" alt="Mobile Developer 4" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold">Phum Chamroeun</h3>
+                                    <p class="text-gray-100 text-sm">Mobile Developer</p>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold">1</div>
+                                <div class="text-xs text-gray-100">Projects</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">BELTEI Kid App</span>
+                                <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">50%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Developer 5 Projects -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                    <div class="bg-gradient-to-r from-gray-700 to-gray-800 p-6 text-white">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-white/30 mr-3">
+                                    <img src="../images/teams/soklin.png" alt="Mobile Developer 5" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold">Nuon Soklin</h3>
+                                    <p class="text-gray-100 text-sm">Mobile Developer & Backend Developer</p>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold">1</div>
+                                <div class="text-xs text-gray-100">Projects</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">BELTEI Kid App</span>
+                                <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">50%</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">BELTEI Kid Backend Systems & API</span>
+                                <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">10%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend Developer 1 Projects -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                    <div class="bg-gradient-to-r from-gray-700 to-gray-800 p-6 text-white">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-white/30 mr-3">
+                                    <img src="../images/teams/boyvid.png" alt="Backend Developer 1" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold">Vong David</h3>
+                                    <p class="text-gray-300 text-sm">Backend Developer & API</p>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold">6</div>
+                                <div class="text-xs text-gray-300">Projects</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">BELTEI IS Backend Systems & API</span>
+                                <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">100%</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">AIPA Law Library Backend Systems & API</span>
+                                <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">100%</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">BELTEI IU and IS Web App</span>
+                                <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">100%</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">BELTEI IU Learning Web App</span>
+                                <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">100%</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">BELTEI Helpdesk Web App and Backend Systems</span>
+                                <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">98%</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">BELTEI Learning Backend Systems</span>
+                                <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">90%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend Developer 2 Projects -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                    <div class="bg-gradient-to-r from-gray-700 to-gray-800 p-6 text-white">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-white/30 mr-3">
+                                    <img src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80" alt="Backend Developer 2" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold">Chhean Lymeng</h3>
+                                    <p class="text-gray-100 text-sm">Backend Developer & API</p>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold">5</div>
+                                <div class="text-xs text-gray-100">Projects</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">BELTEI IU Backend Systems & API</span>
+                                <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">100%</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">BELTEI IU Learning Backend Systems & API</span>
+                                <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">100%</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">NAC Backend Systems & API</span>
+                                <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">100%</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">BELTEI Helpdesk API</span>
+                                <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">100%</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-medium text-gray-800">BELTEI Learning API and Hosting</span>
+                                <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">90%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services & Capabilities -->
+    <section id="capabilities" class="py-16 bg-gray-50 scroll-mt-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-16">Our Capabilities</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover text-center">
+                    <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-mobile-alt text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Mobile Apps</h3>
+                    <p class="text-gray-600 text-sm">Native & cross-platform mobile applications for iOS and Android</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover text-center">
+                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-server text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Backend Systems</h3>
+                    <p class="text-gray-600 text-sm">Scalable APIs, databases, and server infrastructure</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover text-center">
+                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-cloud text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Cloud Solutions</h3>
+                    <p class="text-gray-600 text-sm">Cloud deployment, DevOps, and infrastructure management</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover text-center">
+                    <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-cogs text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Integration</h3>
+                    <p class="text-gray-600 text-sm">Seamless integration between mobile apps and backend systems</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 gradient-bg text-white scroll-mt-20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-8">Ready to Work Together?</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                Let's discuss your next project and see how our experienced team can bring your vision to life.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition duration-300">
+                    <i class="fas fa-envelope mr-2"></i>Get In Touch
+                </button>
+                <button class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition duration-300">
+                    <i class="fas fa-download mr-2"></i>View Portfolio
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center space-x-6 mb-4">
+                <i class="fab fa-github text-2xl hover:text-blue-400 cursor-pointer transition duration-300"></i>
+                <i class="fab fa-linkedin text-2xl hover:text-blue-400 cursor-pointer transition duration-300"></i>
+                <i class="fab fa-twitter text-2xl hover:text-blue-400 cursor-pointer transition duration-300"></i>
+            </div>
+            <p class="text-gray-400">&copy; 2025 Elite Development Team. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section[id]');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navbar = document.getElementById('navbar');
+
+        // Mobile menu toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking nav links
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Smooth scroll to sections
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Update active nav link on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements that should animate
+        document.querySelectorAll('.card-hover').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add click animations to buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                let ripple = document.createElement('span');
+                let rect = this.getBoundingClientRect();
+                let size = Math.max(rect.height, rect.width);
+                let x = e.clientX - rect.left - size / 2;
+                let y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple');
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+        
+        const carousel = document.querySelector('#team-members .overflow-x-auto');
+        let autoScrollInterval;
+        const cards = carousel.querySelectorAll('.flex-none');
+        cards.forEach(card => {
+            const clone = card.cloneNode(true);
+            carousel.appendChild(clone);
+        });
+        function startAutoScroll() {
+            const cardWidth = cards[0].offsetWidth + 24;
+            autoScrollInterval = setInterval(() => {
+                carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
+                if (carousel.scrollLeft >= cardWidth * cards.length) {
+                    carousel.scrollLeft = 0;
+                }
+            }, 3000);
+        }
+        carousel.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
+        carousel.addEventListener('mouseleave', startAutoScroll);
+        startAutoScroll();
+
+    </script>
+
+
+</body>
+</html>
